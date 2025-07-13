@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Sayfası</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0e1a, #1b093d, #0f144a);
+      background-size: 400% 400%;
+      animation: bgAnimation 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .test-container {
+      background: rgba(19, 24, 42, 0.35);
+      padding: 50px 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(128, 0, 255, 0.2);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+      color: #e0e8ff;
+      position: relative;
+    }
+
+    .test-container::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(74,111,255,0.15) 0%, transparent 70%);
+      z-index: -1;
+      animation: pulse 8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .test-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00eeff, #4a6fff, #a600ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(74, 111, 255, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      .test-title {
+        font-size: 2rem;
+      }
+
+      .test-container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1 class="test-title">Bu bir test sayfasıdır</h1>
+  </div>
+</body>
+</html>
