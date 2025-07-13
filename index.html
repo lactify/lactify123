@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VICE ROLEPLAY - Türkiye'nin En Eğlenceli RP Sunucusu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --main-bg: #0a0e1a;
+            --card-bg: rgba(19, 24, 42, 0.85);
+            --accent: #4a6fff;
+            --accent-hover: #5d7eff;
+            --neon-blue: #00eeff;
+            --neon-purple: #a600ff;
+            --text: #e0e8ff;
+            --text-secondary: #a0a8c0;
+            --success: #00cc88;
+            --warning: #ffaa00;
+            --danger: #ff3366;
+            --gold: #ffd700;
+            --management-blue: #3a86ff;
+            --cofounder-red: #ff006e;
+            --developer-purple: #8338ec;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--main-bg), #0d1425);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(74, 111, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(166, 0, 255, 0.1) 0%, transparent 40%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(10, 14, 26, 0.9), rgba(10, 14, 26, 0.95)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            filter: blur(2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .server-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--accent), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(74, 111, 255, 0.5);
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+        }
+
+        .server-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.7);
+        }
+
+        .welcome {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 0 0 10px rgba(224, 232, 255, 0.3);
+            font-weight: 300;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            min-width: 220px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--accent), #2a4bcc);
+            color: white;
+            border: 1px solid rgba(74, 111, 255, 0.5);
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(74, 111, 255, 0.6);
+            background: linear-gradient(135deg, var(--accent-hover), #3658e0);
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(74, 111, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            color: var(--text);
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 10px rgba(224, 232, 255, 0.2);
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), transparent);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .department {
+            background: rgba(25, 30, 50, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(74, 111, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .department:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(74, 111, 255, 0.4);
+            border-color: var(--accent);
+        }
+
+        .department-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .department:hover .department-image {
+            transform: scale(1.05);
+        }
+
+        .department-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .department-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text);
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .department-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .staff-card {
+            background: rgba(25, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(74, 111, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(74, 111, 255, 0.4);
+            border-color: var(--accent);
+        }
+
+        .staff-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(74, 111, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .staff-card:hover .staff-avatar {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 238, 255, 0.6);
+        }
+
+        .staff-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .staff-role {
+            font-size: 1rem;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+            margin-top: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .role-owner, .role-co-owner {
+            background: linear-gradient(90deg, #e99700, #dd6b00);
+            color: #333;
+        }
+
+        .role-co-founder {
+            background: linear-gradient(90deg, var(--card-bg), #b60000);
+            color: white;
+        }
+
+        .role-management {
+            background: linear-gradient(90deg, var(--management-blue), #0045bd);
+            color: white;
+        }
+
+        .role-super-admin {
+            background: linear-gradient(90deg, var(--success), #165e00);
+            color: white;
+        }
+
+        .role-developer {
+            background: linear-gradient(90deg, var(--developer-purple), #4000ad);
+            color: white;
+        }
+
+        .discord-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .staff-card:hover .discord-icon {
+            color: #7289da;
+            transform: scale(1.2);
+        }
+
+        .sub-section {
+            margin-bottom: 50px;
+        }
+
+        .sub-section-title {
+            font-size: 1.7rem;
+            margin: 0 0 35px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--warning);
+            text-align: center;
+            color: var(--warning);
+            text-shadow: 0 0 10px rgba(255, 170, 0, 0.3);
+            position: relative;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .sub-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--warning), transparent);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .screenshot {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            position: relative;
+            height: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(74, 111, 255, 0.5);
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.1);
+        }
+
+        .screenshot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(10, 14, 26, 0.8));
+        }
+
+        .links-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(74, 111, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .links-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .link-item {
+            background: rgba(25, 30, 50, 0.7);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(74, 111, 255, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(74, 111, 255, 0.4);
+            border-color: var(--accent);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover .link-icon {
+            color: var(--neon-purple);
+            transform: scale(1.1);
+        }
+
+        .link-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 26, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 238, 255, 0.7);
+            animation: zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            border-top: 1px solid rgba(74, 111, 255, 0.3);
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .server-title {
+                font-size: 2.5rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .staff-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="server-title">VICE ROLEPLAY</h1>
+            <p class="welcome">Türkiye'nin en eğlenceli RP sunucusuna hoş geldiniz!</p>
+            
+            <div class="button-group">
+                <a href="https://discord.gg/4hqjQYjUwm" class="btn">
+                    <i class="fas fa-door-open"></i> Sunucuya Katıl
+                </a>
+                <a href="#" class="btn">
+                    <i class="fas fa-book"></i> Kural Kitabı
+                </a>
+            </div>
+        </header>
+
+        <!-- Legal Departmentlar -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-gavel"></i> Legal Departmanlar
+            </h2>
+            <div class="departments-grid">
+                <div class="department" onclick="openModal('https://imgur.com/yAjML2i.png')">
+                    <img src="https://imgur.com/yAjML2i.png" alt="Polis Department" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Polis Departmanı</h3>
+                        <p class="department-desc">Şehrin güvenliğini sağlayan resmi kolluk kuvveti</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/mHggIhQ.png')">
+                    <img src="https://imgur.com/mHggIhQ.png" alt="EMS / Hastane" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">EMS / Hastane</h3>
+                        <p class="department-desc">Acil sağlık hizmetleri ve tıbbi destek birimi</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/kRShcMy.png')">
+                    <img src="https://imgur.com/kRShcMy.png" alt="Şerif Department" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Şerif Departmanı</h3>
+                        <p class="department-desc">Bölgesel güvenlik ve kanun uygulayıcıları</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/JTKO4jj.png')">
+                    <img src="https://imgur.com/JTKO4jj.png" alt="Belediye" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Belediye</h3>
+                        <p class="department-desc">Şehir yönetimi ve kamu hizmetleri</p>
+                    </div>
+                </div>
+                
+                <!-- Yeni eklenen departmanlar -->
+                <div class="department" onclick="openModal('https://imgur.com/LAst4er.png')">
+                    <img src="https://imgur.com/LAst4er.png" alt="Adalet Bakanlığı" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Adalet Bakanlığı</h3>
+                        <p class="department-desc">Hukuk ve adalet hizmetleri</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/TBqQat2.png')">
+                    <img src="https://imgur.com/TBqQat2.png" alt="İtfaiye" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">İtfaiye</h3>
+                        <p class="department-desc">Yangın söndürme ve kurtarma hizmetleri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mekanik / Teknik Servisler -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i> Mekanik / Teknik Servisler
+            </h2>
+            <div class="departments-grid">
+                <div class="department" onclick="openModal('https://imgur.com/3OaF3Cu.png')">
+                    <img src="https://imgur.com/3OaF3Cu.png" alt="LS Customs" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">LS Customs</h3>
+                        <p class="department-desc">Araç modifikasyon ve tamir merkezi</p>
+                    </div>
+                </div>
+
+                                <div class="department" onclick="openModal('https://imgur.com/ofO2tqc.png')">
+                    <img src="https://imgur.com/ofO2tqc.png" alt="Araç Galerisi" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Araç Galerisi</h3>
+                        <p class="department-desc">Lüks ve spor araç satış showroom'u</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/BVaRHGB.png')">
+                    <img src="https://imgur.com/BVaRHGB.png" alt="Benny's Garage" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Benny's Garage</h3>
+                        <p class="department-desc">Özel araç modifikasyon ve tasarım atölyesi</p>
+                    </div>
+                </div>
+
+                                <div class="department" onclick="openModal('https://imgur.com/LomHkq5.png')">
+                    <img src="https://imgur.com/LomHkq5.png" alt="Araç Galerisi" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Redline Mekanik</h3>
+                        <p class="department-desc">Araç Tamir ve Bakım Merkezi</p>
+                    </div>
+                </div>
+
+                                <div class="department" onclick="openModal('https://imgur.com/cA5nbHE.png')">
+                    <img src="https://imgur.com/cA5nbHE.png" alt="Araç Galerisi" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Amol Mekanik</h3>
+                        <p class="department-desc">Araç Yenileme, Modifiye ve Bakım Merkezi</p>
+                    </div>
+                </div>
+
+                                <div class="department" onclick="openModal('https://imgur.com/BcCIhET.png')">
+                    <img src="https://imgur.com/BcCIhET.png" alt="Araç Galerisi" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Auto Fix Factory</h3>
+                        <p class="department-desc">Araç Üretim Merkezi</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Diğer Mekanlar -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-map-marked-alt"></i> Diğer Mekanlar
+            </h2>
+            <div class="departments-grid">
+                <div class="department" onclick="openModal('https://imgur.com/T21bMdh.png')">
+                    <img src="https://imgur.com/T21bMdh.png" alt="Lüks Restoran" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Lüks Restoran</h3>
+                        <p class="department-desc">Gurme yemekler ve lüks atmosfer</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/Z7HMYGu.png')">
+                    <img src="https://imgur.com/Z7HMYGu.png" alt="Doğa Resort" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Doğa Restorantı</h3>
+                        <p class="department-desc">Huzurlu bir kaçamak için mükemmel mekan</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/2Cgowoi.png')">
+                    <img src="https://imgur.com/2Cgowoi.png" alt="Neon Bar" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Neon Bar</h3>
+                        <p class="department-desc">Gece hayatının kalbinin attığı mekan</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/0IKrYjE.png')">
+                    <img src="https://imgur.com/0IKrYjE.png" alt="Yarış Pisti" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Yarış Pisti</h3>
+                        <p class="department-desc">Adrenalin dolu yarışlar için buluşma noktası</p>
+                    </div>
+                </div>
+                
+                <!-- Yeni eklenen mekanlar -->
+                <div class="department" onclick="openModal('https://imgur.com/PqeANyX.png')">
+                    <img src="https://imgur.com/PqeANyX.png" alt="Lüks Otel" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">Lüks Otel</h3>
+                        <p class="department-desc">Konfor ve lüksün buluştuğu konaklama</p>
+                    </div>
+                </div>
+                
+                <div class="department" onclick="openModal('https://imgur.com/nF1GvQV.png')">
+                    <img src="https://imgur.com/nF1GvQV.png" alt="Spor Kompleksi" class="department-image">
+                    <div class="department-content">
+                        <h3 class="department-name">İskele</h3>
+                        <p class="department-desc">Deniz Etkinlikleri İçin Şahane Biryer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yetkili Ekip -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-users-cog"></i> Yetkili Ekip
+            </h2>
+            
+            <div class="sub-section">
+                <h3 class="sub-section-title">
+                    <i class="fas fa-crown"></i> Kurucularımız
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/467734976864059413/ac5993e4c9c1729d0bc126a3f04b9553.png" alt="Caner" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Caner</div>
+                        <span class="staff-role role-owner">Owner</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1081683503055388784/a_0a453ecc3e23806127359aea7f4aac9e.gif" alt="Mert" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Mert</div>
+                        <span class="staff-role role-co-owner">Co-Owner</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sub-section">
+                <h3 class="sub-section-title">
+                    <i class="fas fa-user-shield"></i> Yetkili Kadromuz
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1041766954068873379/e524b6caa2da72127b9e0acd65b8680f.png" alt="ZeWo" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">ZeWo</div>
+                        <span class="staff-role role-co-founder">Co Founder</span>
+                    </div>
+                                        <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1151096529139028008/febd950a822a4a9232dbe9db72337aa5.png" alt="Reşat" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Reşat</div>
+                        <span class="staff-role role-co-founder">Co Founder</span>
+                    </div>
+                                        <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1226657584853815446/1ccdc074353885dcb165229861615039.png" alt="Limon" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Limon</div>
+                        <span class="staff-role role-co-founder">Co Founder</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1041756190473990254/a3d0fc50b678301a7a332f0dccd76aaf.png" alt="Kerem" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Kerem</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/498053525884895232/01cc4da8e3115ec308924ad206cdfe5d.png" alt="Samet" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Samet</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/693868569296896211/63008a4a4188fd22cd1f46d57616dc74.png" alt="Emrend" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Emrend</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/1031270133039120515/3056c0081437b2adb5850e7b0851fd25.png" alt="Kalyoncu" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Kalyoncu</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/765930809391054858/c66523739dfbbde9ee4577f465e89455.png" alt="Astro" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Astro</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/940276033716883487/a_9f7a9e3b6f0a3b9d3e3b3b3b3b3b3b3b.gif" alt="Frenzy" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Frenzy</div>
+                        <span class="staff-role role-management">Management</span>
+                    </div>
+                                        <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/888494346842800178/fe22162c662a9fd838f4f386f19b2965.png" alt="Erdem" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Erdem</div>
+                        <span class="staff-role role-super-admin">Süper Admin</span>
+                    </div>
+                    <div class="staff-card" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                        <img src="https://cdn.discordapp.com/avatars/929766490318725212/6f101bd6375a52c969fc42154106adfd.png" alt="Toprak" class="staff-avatar">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <div class="staff-name">Toprak</div>
+                        <span class="staff-role role-developer">Developer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sunucumuzdan Kareler -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-camera"></i> Sunucumuzdan Kareler
+            </h2>
+            <div class="screenshots-grid">
+                <div class="screenshot" onclick="openModal('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80')">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Gece Şehir Manzarası">
+                </div>
+                <div class="screenshot" onclick="openModal('https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80')">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Neon Işıklı Sokak">
+                </div>
+                <div class="screenshot" onclick="openModal('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Lüks Araçlar">
+                </div>
+                <div class="screenshot" onclick="openModal('https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80')">
+                    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80" alt="Yüksek Binalar">
+                </div>
+            </div>
+        </div>
+
+        <!-- Linklerimiz -->
+        <div class="links-section">
+            <h2 class="section-title">
+                <i class="fas fa-link"></i> Linklerimiz
+            </h2>
+            <div class="links-grid">
+                <div class="link-item" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                    <i class="fas fa-plug link-icon"></i>
+                    <div class="link-text">Sunucuya Bağlan</div>
+                </div>
+                <div class="link-item" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                    <i class="fas fa-file-alt link-icon"></i>
+                    <div class="link-text">Döküman</div>
+                </div>
+                <div class="link-item" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                    <i class="fab fa-discord link-icon"></i>
+                    <div class="link-text">Discord</div>
+                </div>
+                <div class="link-item" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                    <i class="fab fa-instagram link-icon"></i>
+                    <div class="link-text">Instagram</div>
+                </div>
+                <div class="link-item" onclick="window.location.href='https://discord.gg/4hqjQYjUwm'">
+                    <i class="fab fa-tiktok link-icon"></i>
+                    <div class="link-text">TikTok</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for image view -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
+        <div class="footer-logo">VICE ROLEPLAY</div>
+        <p>Türkiye'nin en eğlenceli RP sunucusu &copy; 2023 - Tüm hakları saklıdır</p>
+    </footer>
+
+    <script>
+        // Open modal with image
+        function openModal(imageUrl) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imageUrl;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        // Close modal when clicking outside of image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
